@@ -56,7 +56,7 @@ float ESP32AnalogRead::readVoltage()
  */
 uint32_t ESP32AnalogRead::readMiliVolts()
 {
-#if defined(CONFIG_IDF_TARGET_ESP32S2)
+#if defined(CONFIG_IDF_TARGET_ESP32S2 || CONFIG_IDF_TARGET_ESP32S3)
 	if (!attached)
 		return 0;
 	analogRead(myPin);
@@ -361,7 +361,7 @@ uint32_t ESP32AnalogRead::readMiliVolts()
 
 uint16_t ESP32AnalogRead::readRaw()
 {
-#if defined(CONFIG_IDF_TARGET_ESP32S2)
+#if defined(CONFIG_IDF_TARGET_ESP32S2 || CONFIG_IDF_TARGET_ESP32S3)
 	if (!attached)
 		return 0;
 	analogRead(myPin);
